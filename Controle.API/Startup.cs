@@ -27,12 +27,28 @@ namespace Controle.API
             
             services.AddMvc();
             
+            services.AddMvc().AddJsonOptions(opcoes =>
+            {
+                opcoes.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+            });
+
             services.AddScoped<IContribuinteRepository, ContribuinteRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
+
             app.UseMvc();
         }
     }

@@ -11,6 +11,33 @@
 
   <ItemGroup>
     <PackageReference Include="Realm" Version="3.2.1" />
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />  
+    <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
+    <PackageReference Include="Autofac" Version="4.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Layers" />
+    <Folder Include="Services" />
+    <Folder Include="ViewModels" />
+    <Folder Include="Views" />
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Layers\" />
+    <Folder Include="Layers\Business\" />
+    <Folder Include="Layers\Data\" />
+    <Folder Include="ViewModels\Base\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Implementation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\Contribuinte.cs" />
+    <Compile Remove="Views\MainView.cs" />
+    <Compile Remove="Views\:Users:halex:Projects:Personal:Xamarin:Controle:Controle.Core:ViewModels:EmptyClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controle.Models\Controle.Models.csproj" />
   </ItemGroup>
 </Project>
