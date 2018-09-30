@@ -28,14 +28,6 @@ namespace Controle.Core.ViewModels.Base
             _containerBuilder.RegisterType<MainViewModel>();
             _containerBuilder.RegisterType<CadastroViewModel>();
             _containerBuilder.RegisterType<ListaViewModel>();
-
-
-            //_containerBuilder.RegisterType<MainViewModel>();
-            //_containerBuilder.RegisterType<GeneralViewModel>();
-            //_containerBuilder.RegisterType<AboutViewModel>();
-            //_containerBuilder.RegisterType<ScheduleViewModel>();
-            //_containerBuilder.RegisterType<TalkDetailsViewModel>();
-
         }
 
         public T Resolve<T>() => _container.Resolve<T>();

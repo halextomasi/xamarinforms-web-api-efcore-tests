@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Controle.Core.Extensions;
 using Controle.Core.Services;
 using Controle.Core.ViewModels.Base;
-using Controle.Models;
+using Controle.Models.Classes;
 using Realms;
 using Xamarin.Forms;
 
@@ -48,16 +46,14 @@ namespace Controle.Core.ViewModels
             
             if (realmDb.All<Contribuinte>().Count() != listaContribuintes.Count)
             {
-                using (var transaction = realmDb.BeginWrite())
-                {
-                    _contribuintes = _contribuintes.ToObservableCollection();
+                realmDb.RemoveAll<Contribuinte>();
 
-                    foreach (var contribuinte in listaContribuintes)
+                foreach (var contribuinte in listaContribuintes)
+                {
+                    realmDb.Write(() =>
                     {
-                        Contribuinte contri = contribuinte;
-                        
-                        transaction.Commit();
-                    }
+                        realmDb.Add(contribuinte);
+                    });
                 }
             }
         }

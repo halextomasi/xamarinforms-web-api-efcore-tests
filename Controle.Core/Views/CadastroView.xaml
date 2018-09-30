@@ -1,5 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Controle.Core.Views.CadastroView">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maskedEntry="clr-namespace:Xamarin.Forms.MaskedEntry;assembly=Xamarin.Forms.MaskedEntry"
+             x:Class="Controle.Core.Views.CadastroView">
     <ContentPage.Content>
+
+        <StackLayout>
+            <Label Text="CPF"></Label>
+            <maskedEntry:MaskedEntry Placeholder="000.000.000-00" Mask="XXX.XXX.XXX-XX" Keyboard="Numeric" ></maskedEntry:MaskedEntry>
+
+            <Label Text="Nome do Contribuinte:"></Label>
+            <Entry Placeholder="Hálex Tarouco Tomasi" Text="{Binding Contribuinte.Nome}" ></Entry>
+
+            <Label Text="Numero de Dependentes:"></Label>
+            <Entry Placeholder="0" Text="{Binding Contribuinte.NumeroDependentes}" Keyboard="Numeric" ></Entry>
+
+            <Label Text="Renda Bruta Mensal:"></Label>
+            <Entry Placeholder="R$10000,00" Text="{Binding Contribuinte.RendaBrutaMensal}"></Entry>
+            
+            <Button Text="Gravar" Command="{Binding GravarClickedCommand}"></Button>
+        </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

@@ -1,6 +1,6 @@
 ﻿using Realms;
 
-namespace Controle.Models
+namespace Controle.Models.Classes
 {
     public class Contribuinte : RealmObject
     {

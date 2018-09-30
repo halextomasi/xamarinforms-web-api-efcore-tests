@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Controle.Models;
+using Controle.Models.Classes;
 
 namespace Controle.Core.Extensions
 {

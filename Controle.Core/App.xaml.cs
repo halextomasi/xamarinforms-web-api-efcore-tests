@@ -1,4 +1,6 @@
 ﻿using System;
+using Controle.Core.Services;
+using Controle.Core.ViewModels.Base;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 namespace Controle.Core
@@ -7,22 +9,24 @@ namespace Controle.Core
     {
         public App()
         {
-            //InitializeComponent();
+            InitializeComponent();
+            BuildDependencies();
+            InitNavigation();
+        }
+
+        public void BuildDependencies()
+        {
+            ViewModelLocator.Instance.Build();
+        }
+
+        private async void InitNavigation()
+        {
+            var navigationService = ViewModelLocator.Instance.Resolve<INavigationService>();
+            await navigationService.InitializeAsync();
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
         }
     }
 }

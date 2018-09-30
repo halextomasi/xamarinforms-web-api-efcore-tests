@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Controle.Models;
+using Controle.Models.Classes;
 
 namespace Controle.Core.Services
 {

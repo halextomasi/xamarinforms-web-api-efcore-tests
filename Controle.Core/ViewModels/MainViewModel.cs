@@ -1,5 +1,4 @@
-﻿using System;
-using Controle.Core.ViewModels.Base;
+﻿using Controle.Core.ViewModels.Base;
 
 namespace Controle.Core.ViewModels
 {
@@ -29,11 +28,10 @@ namespace Controle.Core.ViewModels
         }
 
         public MainViewModel(CadastroViewModel cadastroViewModel,
-            ListaViewModel listaViewModel)
+                             ListaViewModel listaViewModel)
         {
             _cadastroViewModel = cadastroViewModel;
             _listaViewModel = listaViewModel;
         }
     }
-
 }

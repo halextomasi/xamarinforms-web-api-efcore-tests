@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Controle.Models;
+using Controle.Models.Classes;
 using Newtonsoft.Json;
 
 namespace Controle.Core.Services.Implementation
@@ -32,7 +30,7 @@ namespace Controle.Core.Services.Implementation
             catch (Exception exception)
             {
                 //MENSAGEM DE ERRO COM A CONEXÃO.
-                //MANTERA O QUE TEM NO BANCO DE DADOS
+                //MANTERA O QUE TEM NO REALM
             }
 
             return retorno;
@@ -59,7 +57,7 @@ namespace Controle.Core.Services.Implementation
             if (!resposta.IsSuccessStatusCode)
             {
                 //MENSAGEM DE ERRO COM A CONEXÃO.
-                //MANTERA O QUE TEM NO BANCO DE DADOS
+                //MANTERA O QUE TEM NO REALM
             }
             else
             {
