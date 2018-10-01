@@ -48,6 +48,7 @@ namespace Controle.Tests
                     Id = 0,
                     Nome = "Matheus",
                     CPF = "01029320239",
+                    NumeroDependentes = 0,
                     RendaBrutaMensal = 1000
                 };
 
