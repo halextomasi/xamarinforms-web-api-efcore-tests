@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Controle.Core.Models;
 
 namespace Controle.Core.Services

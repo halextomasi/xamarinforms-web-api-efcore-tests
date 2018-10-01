@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -53,12 +52,12 @@ namespace Controle.Core.ViewModels
             });
         }
 
-        public Task OnViewAppearingAsync(VisualElement view)
+        public async Task OnViewAppearingAsync(VisualElement view)
         {
-            return Task.FromResult(true);
+            await AtualizaLista();
         }
 
-        private void AtualizaLista()
+        private async Task AtualizaLista()
         {
             var listaContribuintes = _contribuinteService.ObterTodos();
             _contribuintes = listaContribuintes.ToObservableCollection();

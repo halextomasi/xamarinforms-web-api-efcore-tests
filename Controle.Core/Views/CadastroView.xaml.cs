@@ -1,6 +1,4 @@
-﻿
-using System;
-using Controle.Core.ViewModels.Base;
+﻿using Controle.Core.ViewModels.Base;
 using Xamarin.Forms;
 
 namespace Controle.Core.Views

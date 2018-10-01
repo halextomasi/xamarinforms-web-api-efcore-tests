@@ -159,5 +159,13 @@
       <Name>Controle.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ic_about.png" />
+    <Content Include="Resources\ic_about@2x.png" />
+    <Content Include="Resources\ic_about@3x.png" />
+    <Content Include="Resources\ic_general.png" />
+    <Content Include="Resources\ic_general@2x.png" />
+    <Content Include="Resources\ic_general@3x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

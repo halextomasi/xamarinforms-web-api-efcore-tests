@@ -6,6 +6,6 @@
     x:Class="Controle.Core.Views.MainView"
     NavigationPage.HasNavigationBar="False"
     NavigationPage.BackButtonTitle="">
-    <views:CadastroView  BindingContext="{Binding CadastroViewModel}" Icon="ic_general.png" />
-    <views:ListaView  BindingContext="{Binding ListaViewModel}" Icon="ic_schedule.png"/>
+    <views:CadastroView  Title="Cadastro" BindingContext="{Binding CadastroViewModel}" Icon="ic_about.png" />
+    <views:ListaView  Title="Lista" BindingContext="{Binding ListaViewModel}" Icon="ic_general.png"/>
 </TabbedPage>

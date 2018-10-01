@@ -43,7 +43,8 @@
                 <Label Text="Renda Bruta Mensal:" />
                 <Entry Placeholder="R$1000,00"
                        Text="{Binding Contribuinte.RendaBrutaMensal}"
-                       Keyboard="Numeric" />
+                       Keyboard="Numeric">
+                </Entry>
 
                 <Button Text="Gravar"
                         TextColor="Black"
