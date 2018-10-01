@@ -16,6 +16,9 @@ namespace Controle.API.Models
         [Required(ErrorMessage = "Favor informar o nome do contribuinte.")]
         [StringLength(100)]
         public string Nome { get; set; }
+
+        [MinLength(1)]
+        public int NumeroDependentes { get; set; }
         
         [Required(ErrorMessage = "Favor informar o valor da renda bruta mensal do contribuinte.")]
         [DataType(DataType.Currency)]

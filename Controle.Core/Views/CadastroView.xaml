@@ -1,23 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:maskedEntry="clr-namespace:Xamarin.Forms.MaskedEntry;assembly=Xamarin.Forms.MaskedEntry"
+             xmlns:behaviors="clr-namespace:Controle.Core.Behaviors;assembly=Controle.Core"
              x:Class="Controle.Core.Views.CadastroView">
     <ContentPage.Content>
 
-        <StackLayout>
-            <Label Text="CPF"></Label>
-            <maskedEntry:MaskedEntry Placeholder="000.000.000-00" Mask="XXX.XXX.XXX-XX" Keyboard="Numeric" ></maskedEntry:MaskedEntry>
+        <StackLayout VerticalOptions="Center">
+            <Label Text="CPF:"></Label>
+            <Entry Text="{Binding Contribuinte.CPF}" Keyboard="Numeric">
+                <Entry.Behaviors>
+                    <behaviors:MaskedBehavior Mask="XXX.XXX.XXX-XX" />
+                </Entry.Behaviors>
+            </Entry>
 
-            <Label Text="Nome do Contribuinte:"></Label>
-            <Entry Placeholder="Hálex Tarouco Tomasi" Text="{Binding Contribuinte.Nome}" ></Entry>
+            <Label Text="Nome:"></Label>
+            <Entry Placeholder="Hálex Tarouco Tomasi" Text="{Binding Contribuinte.Nome}"></Entry>
 
-            <Label Text="Numero de Dependentes:"></Label>
-            <Entry Placeholder="0" Text="{Binding Contribuinte.NumeroDependentes}" Keyboard="Numeric" ></Entry>
+            <Label Text="Numero Dependentes:"></Label>
+            <Entry Text="{Binding Contribuinte.NumeroDependentes}" Keyboard="Numeric"></Entry>
 
             <Label Text="Renda Bruta Mensal:"></Label>
-            <Entry Placeholder="R$10000,00" Text="{Binding Contribuinte.RendaBrutaMensal}"></Entry>
-            
+            <Entry Placeholder="R$1000,00" Text="{Binding Contribuinte.RendaBrutaMensal}" Keyboard="Numeric"/>
+                
             <Button Text="Gravar" Command="{Binding GravarClickedCommand}"></Button>
         </StackLayout>
         

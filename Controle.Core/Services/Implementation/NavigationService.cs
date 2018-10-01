@@ -132,10 +132,8 @@ namespace Controle.Core.Services.Implementation
         void CreatePageViewModelMappings()
         {
             _mappings.Add(typeof(MainViewModel), typeof(MainView));
-            //_mappings.Add(typeof(AboutViewModel), typeof(AboutView));
-            //_mappings.Add(typeof(ScheduleViewModel), typeof(ScheduleView));
-            //_mappings.Add(typeof(GeneralViewModel), typeof(GeneralView));
-            //_mappings.Add(typeof(TalkDetailsViewModel), typeof(TalkDetailsView));
+            _mappings.Add(typeof(CadastroViewModel), typeof(CadastroView));
+            _mappings.Add(typeof(ListaViewModel), typeof(ListaViewModel));
         }
     }
 }
