@@ -10,7 +10,7 @@ namespace Controle.API.Models
         public int Id { get; set; }
         
         [Required (ErrorMessage ="Favor informar um CPF válido para o contribuinte.")]
-        [StringLength(11, MinimumLength = 11)]
+        [StringLength(14)]
         public string CPF { get; set; }
         
         [Required(ErrorMessage = "Favor informar o nome do contribuinte.")]
