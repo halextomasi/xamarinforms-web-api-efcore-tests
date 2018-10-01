@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Realm" Version="3.2.1" />
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
     <PackageReference Include="Autofac" Version="4.8.1" />
   </ItemGroup>
@@ -29,11 +28,15 @@
     <None Remove="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Models\Contribuinte.cs" />
     <Compile Remove="Views\MainView.cs" />
     <Compile Remove="Views\:Users:halex:Projects:Personal:Xamarin:Controle:Controle.Core:ViewModels:EmptyClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Controle.Models\Controle.Models.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\..\..\..\..\.nuget\packages\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

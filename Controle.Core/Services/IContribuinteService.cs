@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Controle.Models.Classes;
+using Controle.Core.Models;
 
 namespace Controle.Core.Services
 {
     public interface IContribuinteService
     {
-        Task<IList<Contribuinte>> ObterTodos();
+        IEnumerable<Contribuinte> ObterTodos();
         bool AdicionarContribuinte(Contribuinte contribuinte);
     }
 }

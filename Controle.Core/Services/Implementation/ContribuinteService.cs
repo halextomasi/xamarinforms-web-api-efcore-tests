@@ -3,49 +3,38 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Controle.Models.Classes;
+using Controle.Core.Models;
 using Newtonsoft.Json;
 
 namespace Controle.Core.Services.Implementation
 {
     public class ContribuinteService : IContribuinteService
     {
-        public async Task<IList<Contribuinte>> ObterTodos()
+        private readonly IDialogService _dialogService;
+        
+        public ContribuinteService(IDialogService dialogService)
         {
-            IList<Contribuinte> retorno = new List<Contribuinte>();
-            
-            try
-            {
-                var uri = new Uri("http://localhost:5001/api/contribuinte/obtercontribuintes");
+            _dialogService = dialogService;
+        }
+        
+        public IEnumerable<Contribuinte> ObterTodos()
+        {
+            var uri = new Uri("http://localhost:5001/api/contribuinte/obtercontribuintes");
 
-                var client = new HttpClient();
-                var resposta = client.GetAsync(uri).Result;
+            var client = new HttpClient();
+            var resposta = client.GetAsync(uri).Result;
 
-                if (resposta.IsSuccessStatusCode)
-                {
-                    var resultado = resposta.Content.ReadAsStringAsync().Result;
-                    retorno = JsonConvert.DeserializeObject<IList<Contribuinte>>(resultado);
-                }
-            }
-            catch (Exception exception)
+            if (resposta.IsSuccessStatusCode)
             {
-                //MENSAGEM DE ERRO COM A CONEXÃO.
-                //MANTERA O QUE TEM NO REALM
+                var resultado = resposta.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<IEnumerable<Contribuinte>>(resultado);
             }
 
-            return retorno;
+            return new List<Contribuinte>();;
         }
 
         public bool AdicionarContribuinte(Contribuinte contribuinte)
         {
-            /*var contribuinte = new Contribuinte()
-            {
-                Id = 0,
-                Nome = "Matheus",
-                CPF = "01029320239",
-                RendaBrutaMensal = 1000
-            };*/
-
             var uri = new Uri("http://localhost:5001/api/contribuinte/criarcontribuinte");
 
             var conteudoJson = Newtonsoft.Json.JsonConvert.SerializeObject(contribuinte);
@@ -54,17 +43,7 @@ namespace Controle.Core.Services.Implementation
             var client = new HttpClient();
             var resposta = client.PutAsync(uri, conteudoJsonString).Result;
 
-            if (!resposta.IsSuccessStatusCode)
-            {
-                //MENSAGEM DE ERRO COM A CONEXÃO.
-                //MANTERA O QUE TEM NO REALM
-            }
-            else
-            {
-                return Convert.ToBoolean(resposta.Content.ReadAsStringAsync().Result);
-            }
-
-            return false;
+            return resposta.IsSuccessStatusCode;
         }
     }
 }

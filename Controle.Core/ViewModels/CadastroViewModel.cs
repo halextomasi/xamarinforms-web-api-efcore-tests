@@ -1,9 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using Controle.Core.Models;
 using Controle.Core.Services;
 using Controle.Core.ViewModels.Base;
-using Controle.Models.Classes;
 using Xamarin.Forms;
 
 namespace Controle.Core.ViewModels
@@ -37,26 +36,28 @@ namespace Controle.Core.ViewModels
 
             GravarClickedCommand = new Command(() =>
             {
-                try
+                if (ValidaPreenchimentoCampos())
                 {
-                    if (ValidaPreenchimentoCampos())
+                    if (contribuinteService.AdicionarContribuinte(_contribuinte))
                     {
-                        contribuinteService.AdicionarContribuinte(_contribuinte);
-
-                        _dialogService.AlertAsync("Status", "Dados do investidor alterados com sucesso!", "Ok");
+                        _dialogService.AlertAsync("Status", "Contribuinte cadastrado com sucesso!", "Ok");
                     }
-                }
-                catch (Exception ex)
-                {
-                    var mensagem = "Não foi possível alterar os dados do investidor. Verifique sua conexão! \n Detalhe: " +
-                               ex.Message;
+                    else
+                    {
+                        _dialogService.AlertAsync("Status", "Não foi possível cadastrar o novo contribuinte. Verifique sua conexão!", "Ok");
+                    }
                     
-                    _dialogService.AlertAsync("Status", mensagem, "Ok");
+                    Contribuinte = new Contribuinte();
                 }
             });
         }
 
-        public bool ValidaPreenchimentoCampos()
+        public Task OnViewAppearingAsync(VisualElement view)
+        {
+            return Task.FromResult(true);
+        }
+        
+        private bool ValidaPreenchimentoCampos()
         {
             if (Contribuinte.CPF.Length != 14) //Com a máscara.
             {
@@ -71,11 +72,6 @@ namespace Controle.Core.ViewModels
             }
 
             return true;
-        }
-
-        public Task OnViewAppearingAsync(VisualElement view)
-        {
-            return Task.FromResult(true);
         }
     }
 }

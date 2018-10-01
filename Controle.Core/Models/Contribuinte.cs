@@ -1,13 +1,11 @@
 ﻿using System;
 using Newtonsoft.Json;
-using Realms;
 
-namespace Controle.Models.Classes
+namespace Controle.Core.Models
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Contribuinte : RealmObject
+    public class Contribuinte
     {
-        [PrimaryKey]
         [JsonProperty]
         public int Id { get; set; }
         
@@ -22,6 +20,8 @@ namespace Controle.Models.Classes
 
         [JsonProperty]
         public double RendaBrutaMensal { get; set; }
+        
+        public string ImpostoDeRenda { get; set; }
 
         public Contribuinte()
         {
@@ -29,6 +29,7 @@ namespace Controle.Models.Classes
             Nome = String.Empty;
             NumeroDependentes = 0;
             RendaBrutaMensal = 0;
+            ImpostoDeRenda = "";
         }
     }
 }

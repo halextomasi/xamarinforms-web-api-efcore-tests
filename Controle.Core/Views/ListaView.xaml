@@ -1,11 +1,62 @@
-﻿<ContentPage 
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Controle.Core.Behaviors;assembly=Controle.Core"
     x:Class="Controle.Core.Views.ListaView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Contato" FontSize="Large"
-                   HorizontalOptions="CenterAndExpand" />
+        
+     <AbsoluteLayout BackgroundColor="#006666">
+        <Label Text="Lista de Contribuintes"
+               BackgroundColor="#006666"
+               TextColor="White"
+               FontSize="20"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               Margin="0,20,0,0"
+               AbsoluteLayout.LayoutFlags="All" 
+               AbsoluteLayout.LayoutBounds="1,0,1,.1"/>
+            
+        <StackLayout Padding="10"
+                     BackgroundColor="#EFEFEF"
+                     AbsoluteLayout.LayoutFlags="All"
+                     AbsoluteLayout.LayoutBounds="1,1,1,.9">
+            
+            <Label Text="Salário Mínimo Atual" 
+                   HorizontalTextAlignment="Center"/>
+            
+            <Entry Text="{Binding ValorSalarioMinimo}"
+                   Keyboard="Numeric"
+                   HorizontalTextAlignment="Center">
+            </Entry>
+            
+            <Button Text="Atualizar" 
+                    TextColor="Black"
+                    BorderColor="#352584"
+                    BorderWidth="1"
+                    FontAttributes="Bold"
+                    Command="{Binding AtualizarClickedCommand}"></Button>
+            
+                <ListView 
+                    ItemsSource="{Binding Contribuintes}"
+                    BackgroundColor="#EFEFEF" 
+                    SeparatorColor="#CDCDCD" 
+                    HasUnevenRows="True" 
+                    x:Name="listViewContribuintes"> 
+                    <ListView.ItemTemplate>
+                        <DataTemplate> 
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Nome}"
+                                    FontAttributes="Bold"/>
+                                    <Label Text="{Binding ImpostoDeRenda}"
+                                           FontSize="14"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>          
+                    </ListView.ItemTemplate>
+                </ListView> 
         </StackLayout>
+    </AbsoluteLayout>    
     </ContentPage.Content>
 </ContentPage>

@@ -1,8 +1,7 @@
-﻿using System;
-using Controle.Core.Services;
+﻿using Controle.Core.Services;
 using Controle.Core.ViewModels.Base;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+
 namespace Controle.Core
 {
     public partial class App : Application
@@ -27,6 +26,7 @@ namespace Controle.Core
 
         protected override void OnStart()
         {
+
         }
     }
 }

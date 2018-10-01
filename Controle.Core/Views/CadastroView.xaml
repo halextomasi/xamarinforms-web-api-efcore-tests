@@ -1,29 +1,57 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behaviors="clr-namespace:Controle.Core.Behaviors;assembly=Controle.Core"
              x:Class="Controle.Core.Views.CadastroView">
     <ContentPage.Content>
 
-        <StackLayout VerticalOptions="Center">
-            <Label Text="CPF:"></Label>
-            <Entry Text="{Binding Contribuinte.CPF}" Keyboard="Numeric">
-                <Entry.Behaviors>
-                    <behaviors:MaskedBehavior Mask="XXX.XXX.XXX-XX" />
-                </Entry.Behaviors>
-            </Entry>
+        <AbsoluteLayout BackgroundColor="#006666">
 
-            <Label Text="Nome:"></Label>
-            <Entry Placeholder="Hálex Tarouco Tomasi" Text="{Binding Contribuinte.Nome}"></Entry>
+            <Label Text="Novo Contribuinte"
+                   BackgroundColor="#006666"
+                   TextColor="White"
+                   FontSize="20"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Margin="0,20,0,0"
+                   AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="1,0,1,.1" />
 
-            <Label Text="Numero Dependentes:"></Label>
-            <Entry Text="{Binding Contribuinte.NumeroDependentes}" Keyboard="Numeric"></Entry>
+            <StackLayout Padding="10"
+                         BackgroundColor="#EFEFEF"
+                         AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="1,1,1,.9">
+                <Label Text="CPF:" />
+                <Entry Text="{Binding Contribuinte.CPF}"
+                       Placeholder="123.456.789-00"
+                       Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <behaviors:MaskedBehavior Mask="XXX.XXX.XXX-XX" />
+                    </Entry.Behaviors>
+                </Entry>
 
-            <Label Text="Renda Bruta Mensal:"></Label>
-            <Entry Placeholder="R$1000,00" Text="{Binding Contribuinte.RendaBrutaMensal}" Keyboard="Numeric"/>
-                
-            <Button Text="Gravar" Command="{Binding GravarClickedCommand}"></Button>
-        </StackLayout>
-        
+                <Label Text="Nome:" />
+                <Entry Placeholder="Hálex Tarouco Tomasi"
+                       Text="{Binding Contribuinte.Nome}" />
+
+                <Label Text="Numero Dependentes:" />
+                <Entry Text="{Binding Contribuinte.NumeroDependentes}"
+                       Placeholder="0"
+                       Keyboard="Numeric" />
+
+                <Label Text="Renda Bruta Mensal:" />
+                <Entry Placeholder="R$1000,00"
+                       Text="{Binding Contribuinte.RendaBrutaMensal}"
+                       Keyboard="Numeric" />
+
+                <Button Text="Gravar"
+                        TextColor="Black"
+                        BorderColor="#352584"
+                        BorderWidth="1"
+                        FontAttributes="Bold"
+                        Command="{Binding GravarClickedCommand}" />
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
